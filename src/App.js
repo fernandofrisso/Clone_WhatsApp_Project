@@ -28,7 +28,7 @@ export default () => {
   const [activeChat, setActiveChat] = useState({});
   const [user, setUser] = useState({
     
-    id:1234,
+    id: 1234,
     avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo7WfE6wFfdpeFph92LdEFJFnula0ecIObiQ&usqp=CAU',
     name: 'Fernando Frisso'
     
@@ -44,7 +44,7 @@ export default () => {
 
          <header>
 
-            <img className="header--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo7WfE6wFfdpeFph92LdEFJFnula0ecIObiQ&usqp=CAU" alt="" />
+            <img className="header--avatar" src={user.avatar} alt="" />
             
             <div className="header--buttons">
 

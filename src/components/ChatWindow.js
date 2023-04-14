@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect, useRef} from 'react';
 import EmojiPicker, {emojiObject} from 'emoji-picker-react';
 
 import './ChatWindow.css'
@@ -16,7 +16,9 @@ import SendIcon from '@material-ui/icons/Send';
 import MicIcon from '@material-ui/icons/Mic';
 
 
-export default (user) => {
+export default ({user}) => {
+
+    const body = useRef();
 
     let recognition = null;
     let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -33,10 +35,30 @@ export default (user) => {
     const [ list, setList] = useState([
         
         {Author: 123, body: 'BLÁ BLÁ BLA'}, 
+        {Author: 123, body: 'BLÁ BLÁ'}, 
+        {Author: 1234, body: 'BLÁ BLÁ BLA'},
         {Author: 123, body: 'BLÁ BLÁ BLA'}, 
+        {Author: 123, body: 'BLÁ BLÁ'}, 
+        {Author: 1234, body: 'BLÁ BLÁ BLA'},
+        {Author: 123, body: 'BLÁ BLÁ BLA'}, 
+        {Author: 123, body: 'BLÁ BLÁ'}, 
+        {Author: 1234, body: 'BLÁ BLÁ BLA'},
+        {Author: 123, body: 'BLÁ BLÁ BLA'}, 
+        {Author: 123, body: 'BLÁ BLÁ'}, 
+        {Author: 1234, body: 'BLÁ BLÁ BLA'},{Author: 123, body: 'BLÁ BLÁ BLA'}, 
+        {Author: 123, body: 'BLÁ BLÁ'}, 
         {Author: 1234, body: 'BLÁ BLÁ BLA'}
     
     ]);
+
+    useEffect(()=>{
+
+        if(body.current.scrolHeight > body.current.ofsetHeight) {
+
+            body.current.scrolTop =  body.current.scrolHeight - body.current.ofsetHeight
+        }
+
+    }, [list])
 
 
     const handleEmojiClick = (e, emojiObject) => {
@@ -128,7 +150,7 @@ export default (user) => {
 
             </div>
 
-           <div className='chatWindow--body'>
+           <div ref={body} className='chatWindow--body'>
 
                 {list.map((item, key) => (
 
@@ -136,6 +158,7 @@ export default (user) => {
                     
                     key={key}
                     data={item}
+                    user={user}
                     
                     />
 
