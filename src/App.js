@@ -5,6 +5,7 @@ import './App.css';
 import ChatListItem from "./components/ChatListItem";
 import ChatIntro from "./components/ChatIntro";
 import ChatWindow from "./components/ChatWindow";
+import NewChat from "./components/NewChat";
 
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -34,6 +35,13 @@ export default () => {
     
   })
 
+  const [showNewChat, setShowNewChat] = useState(false)
+
+  const handleNewChat = ()=>{
+
+    setShowNewChat(true)
+
+  }
 
 
   return (
@@ -41,6 +49,14 @@ export default () => {
     <div className="app-window">
 
       <div className="sidebar">
+
+        <NewChat 
+
+          chatlist={chatlist}
+          user={user}
+          show={showNewChat}
+          setShow={setShowNewChat}
+        />
 
          <header>
 
@@ -54,7 +70,7 @@ export default () => {
                   
                 </div>
 
-                <div className="header--btn">
+                <div onClick={handleNewChat} className="header--btn">
 
                     <ChatIcon style= {{color:'#919191'}}/>
                   

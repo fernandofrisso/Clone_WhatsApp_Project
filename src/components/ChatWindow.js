@@ -53,9 +53,9 @@ export default ({user}) => {
 
     useEffect(()=>{
 
-        if(body.current.scrolHeight > body.current.ofsetHeight) {
+        if(body.current.scrollHeight > body.current.offsetHeight) {
 
-            body.current.scrolTop =  body.current.scrolHeight - body.current.ofsetHeight
+            body.current.scrollTop =  body.current.scrollHeight - body.current.offsetHeight
         }
 
     }, [list])
