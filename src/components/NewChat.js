@@ -9,7 +9,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 
 
-export default (user, chatlist, show, setShow) => {
+export default ({user, chatlist, show, setShow}) => {
 
     const [list, setList] = useState([
     

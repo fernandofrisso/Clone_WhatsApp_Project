@@ -56,6 +56,7 @@ export default () => {
           user={user}
           show={showNewChat}
           setShow={setShowNewChat}
+          
         />
 
          <header>
